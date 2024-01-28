@@ -1,4 +1,4 @@
-# Single file Django CRUD Application
+#Django CRUD Application
 
 from django import forms
 from django.db import models
@@ -113,20 +113,20 @@ task_edit_template = """
 <a href="{% url 'task_list' %}">Cancel</a>
 """
 
-# Create dummy request for rendering templates
+# Creating dummy request for rendering templates
 from django.test import RequestFactory
 request_factory = RequestFactory()
 request = request_factory.get('/')
 
-# Create and apply migrations
+# Creating and appling migrations
 from django.core.management import call_command
 call_command('makemigrations')
 call_command('migrate')
 
-# Create a superuser for admin access
+# Creating a superuser for admin access
 call_command("createsuperuser", interactive=False, username='admin', email='admin@example.com', password='admin')
 
-# Load template content into the database
+# Loading template content into the database
 from django.template import Template
 from django.template import Context
 from django.template import TemplateDoesNotExist
